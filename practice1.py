@@ -1,1 +1,2 @@
-print("Hello darling !")
+print("Hard")
+print("easy")
