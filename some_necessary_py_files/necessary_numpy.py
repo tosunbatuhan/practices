@@ -87,5 +87,111 @@ b = np.random.randint(4,7, size=(3,3))
 b = np.identity(3)
 
 # repeat the array
+arr = np.array([[1,2,3]])
+r1 = np.repeat(arr,3,axis=0) # repeat the array three times
+
+# to create a specific matrix
+output = np.ones((5,5))
+z = np.zeros((3,3))
+z[1,1] = 9
+output[1:-1,1:-1] = z
+
+# be careful when copying arrays!
+a = np.array([1,2,3])
+b = a
+b[0] = 100
+print(a) # a's first element also becomes 100
+
+# to prevent this we should do the copying via
+b = a.copy()
 
 
+###############
+# MATHEMATICS #
+###############
+
+a = np.array([1,2,3,4])
+a +=2
+a -=2
+a *=2
+a /=2
+
+b = np.array([1,0,1,0])
+c = a+b
+a **= 2
+
+# take sine of all values
+np.sin(a)
+
+##################
+# LINEAR ALGEBRA #
+##################
+
+# lets say we have two matrices
+a = np.ones((2,3))
+b = np.full((3,2),2)
+
+# matrix multiplication
+c = np.matmul(a,b)
+
+# find the determinant
+c = np.identity(3)
+d = np.linalg.det(c)
+
+
+##############
+# STATISTICS #
+##############
+
+stats = np.array([[1,2,3],[4,5,6]])
+
+np.min(stats,axis=1)
+np.max(stats,axis=0)
+np.sum(stats,axis=0)
+
+#######################
+# REORGANIZING ARRAYS #
+#######################
+
+before = np.array([[1,2,3,4],[4,6,7,8]])
+print(before)
+
+after = before.reshape((8,1))
+after2 = before.reshape((4,2))
+
+# Vertically stacking vectors
+
+v1 = np.array([1,2,3,4])
+v2 = np.array([5,6,7,8]) 
+
+v3 = np.vstack([v1,v2])
+
+# Horizontally stacking vectors
+
+h1 = np.ones((2,4))
+h2 = np.zeros((2,2))
+
+h3 = np.hstack((h1,h2))
+
+#################
+# MISCELLANEOUS #
+#################
+
+# load data from file 
+filedata = np.genfromtxt('data.txt', delimiter=',')
+filedata = filedata.astpye('int32')
+
+# Boolean Masking and Advanced Indexing
+
+boolean_filedata = filedata > 50
+values_bigger_than_fifthy = filedata[filedata > 50]
+
+# you can index with a list in numpy
+a = np.array([1,2,3,4,5,6,7,8,9])
+b = a[[1,2,5]]
+
+isit = np.any(filedata>50, axis=0)
+isit = np.all(filedata>50, axis=1)
+
+values_bigger_than_fifthy_smaller_than_hudnred = ((filedata > 50) & (filedata < 100))
+values_not_bigger_than_fifthy_smaller_than_hudnred = (~((filedata > 50) & (filedata < 100)))
