@@ -4,7 +4,7 @@
 
 from turtle import forward
 from torch import nn
-from torchsummary import summary# download it
+from torchsummary import summary # download it
 
 class CNNNetwork(nn.Module):
 
